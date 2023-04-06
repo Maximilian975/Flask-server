@@ -81,4 +81,5 @@ def get_data():
             connection.close()
             print("MySQL connection is closed")
 
-app.run(host="0.0.0.0")
+if __name__ == "__main__":
+    app.run(host="0.0.0.0")
