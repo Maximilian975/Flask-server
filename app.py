@@ -2,10 +2,16 @@ from flask import Flask,request,render_template
 import json
 import mysql.connector
 from mysql.connector import Error
+import logging
 
+def create_app(logger_override=None):
+    app = Flask(__name__)
 
-app = Flask(__name__)
+    if logger_override:
+        app.logger.handlers = logger_override.handlers
+        app.logger.setLevel(logger_override.level)
 
+gunicorn_logger = logging.getLogger('gunicorn.error')
 
 @app.route("/")
 def hello_world():
@@ -83,3 +89,7 @@ def get_data():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
+
+
+    
+    
