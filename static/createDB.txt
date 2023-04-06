@@ -1,0 +1,7 @@
+create table data(
+ID int(16) auto_increment PRIMARY KEY,
+DATE datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+VALUE double,
+SENSORTYPE int(8),
+SENSORID int(8)
+);
