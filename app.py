@@ -2,7 +2,6 @@ from flask import Flask,request,render_template
 import json
 import mysql.connector
 from mysql.connector import Error
-import logging
 
 def create_app(logger_override=None):
     app = Flask(__name__)
