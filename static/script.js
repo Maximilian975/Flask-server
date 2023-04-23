@@ -45,17 +45,15 @@ function getData(event) {
                 
                 scales: {
                     x: {
-                        type: 'timeseries',
-                    }                    
-                    // x: {
-                    //     type: 'time',
-                    //     time: {
-                    //       unit: 'day',
-                    //       displayFormats: {
-                    //         day: 'D MMM yyyy'
-                    //       }
-                    //     }
-                    //   }
+                        min: "2023-04-01 00:00:00",
+                        type: 'time',
+                        time: {
+                          unit: 'day',
+                          displayFormats: {
+                            day: 'D MMM yyyy'
+                          }
+                        }
+                      }
                 }
             }
         });
