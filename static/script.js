@@ -13,77 +13,33 @@ getButton.addEventListener("click", getData);
 var timeFormat = 'moment.ISO_8601';
 var lineChart = document.getElementById('ctx').getContext('2d');
 
-var config = {
-	 type: 'line',
-        data: {
-            datasets: [ 
-                {
-                    label: "US Dates",
-					backgroundColor: "#fff",
-					borderWidth: 1,
-					pointBorderWidth: 1,
-					borderColor: "#f00",
-                    data: [{
-                        x: "2010-01-01T05:06:07", y: 175
-                    }, {
-                        x: "2011-01-01T05:06:07", y: 175
-                    }, {
-                        x: "2012-01-01T05:06:07", y: 178
-                    }, {
-                        x: "2013-01-01T05:06:07", y: 200
-                    }],
-                    fill: false,
-                    borderColor: 'red'
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        datasets: [{
+            data: [{
+                x: '2021-11-06 23:39:30',
+                y: 50
+            }, {
+                x: '2021-11-07 01:00:28',
+                y: 60
+            }, {
+                x: '2021-11-07 09:00:28',
+                y: 20
+            }]
+        }],
+    },
+    options: {
+        scales: {
+            x: {
+                type: 'time',
+                time: {
+                    unit: 'month'
                 }
-            ]
-        },
-        options: {
-			  legend: {
-				display: true,
-				labels: {
-				  usePointStyle: true,
-				},
-				onClick: () => { }, // disable legend onClick functionality that filters datasets
-			  },
-            responsive: true,
-            title: {
-                display: true,
-                text:    "Chart.js Time Scale"
-            },
-			elements: {
-				point: {
-				  radius: 0,
-				  hitRadius: 5,
-				  hoverRadius: 3,
-				},
-			},
-            scales:     {
-                xAxes: [{
-                    type: "time",
-                    time: {
-                        format: timeFormat,
-                        tooltipFormat: 'll'
-                    },
-					displayFormats: {
-                        year: 'YYYY'
-                    },
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Date'
-                    }
-                }],
-                yAxes: [{
-                    scaleLabel: {
-                        display:     true,
-                        labelString: 'value'
-                    }
-                }]
             }
         }
-};
-
-var myLineChart = new Chart(lineChart, config);
-
+    }
+});
 
 
 
