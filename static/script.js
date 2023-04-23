@@ -13,7 +13,7 @@ getButton.addEventListener("click", getData);
 var timeFormat = 'moment.ISO_8601';
 var lineChart = document.getElementById('ctx').getContext('2d');
 
-new Chart(lineChart, {
+new Chart('ctx', {
     type: 'line',
     data: {
         datasets: [{
@@ -34,9 +34,12 @@ new Chart(lineChart, {
             x: {
                 type: 'time',
                 time: {
-                    unit: 'month'
+                  unit: 'day',
+                  displayFormats: {
+                    day: 'D MMM yyyy'
+                  }
                 }
-            }
+              }
         }
     }
 });
