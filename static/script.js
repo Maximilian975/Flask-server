@@ -13,11 +13,11 @@ getButton.addEventListener("click", getData);
 var timeFormat = 'moment.ISO_8601';
 var lineChart = document.getElementById('ctx').getContext('2d');
 
+getData();
 
 
 
-
-function getData(event) {
+function getData() {
     var xhr = new XMLHttpRequest();
     xhr.onload = () => {
         
