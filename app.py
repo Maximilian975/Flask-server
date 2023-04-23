@@ -2,6 +2,7 @@ from flask import Flask,request,render_template
 import json
 import mysql.connector
 from mysql.connector import Error
+import datetime
 
 app = Flask(__name__)
 
@@ -68,8 +69,8 @@ def get_data():
             responseList = []
             print(resultList)
             for res in resultList:
-                responseList.append({"value": res[2], "date":res[1] , "sensorType": res[3], "sensorID": res[4]})
-                print(res)
+                date = res[1].strftime('%b %d, %Y - %H:%M%S')
+                responseList.append({"value": res[2], "date":date , "sensorType": res[3], "sensorID": res[4]})
             print(responseList)
             return json.dumps(responseList)
     except Error as e:
