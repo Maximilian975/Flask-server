@@ -34,23 +34,6 @@ var config = {
                     }],
                     fill: false,
                     borderColor: 'red'
-                },
-                {
-                    label: "UK Dates",
-					borderWidth: 1,
-					pointBorderWidth: 0,
-					backgroundColor: "#fff",
-                    data:  [{
-                        x: "2010-01-01T05:06:07", y: 160
-                    }, {
-                        x: "2011-01-01T05:06:07", y: 175
-                    }, {
-                        x: "2012-01-01T05:06:07", y: 178
-                    }, {
-                        x: "2013-01-01T05:06:07", y: 178
-                    }],
-                    fill: false,
-                    borderColor: 'blue'
                 }
             ]
         },
@@ -111,11 +94,18 @@ function getData(event) {
         response = JSON.parse(xhr.responseText)
         console.log(response)
         dataList.innerHTML = ""
+        var values = [];
+        var dates = [];
         response.forEach( (item,index) => {
-            var li = document.createElement("li")
-            li.innerHTML = JSON.stringify(item)
-            dataList.appendChild(li)
+            values.push(item["value"]);
+            dates.push(item["date"]);
+            
+            // var li = document.createElement("li")
+            // li.innerHTML = JSON.stringify(item)
+            // dataList.appendChild(li)
         })
+        console.log(values);
+        console.log(dates)
     }
     xhr.open("GET", "/get_data");
     xhr.send();
