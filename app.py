@@ -68,7 +68,7 @@ def get_data():
             responseList = []
             print(resultList)
             for res in resultList:
-                responseList.append({"value": res[2], "sensorType": res[3], "sensorID": res[4]})
+                responseList.append({"value": res[2], "date":res[1] , "sensorType": res[3], "sensorID": res[4]})
                 print(res)
             print(responseList)
             return json.dumps(responseList)
