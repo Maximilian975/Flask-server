@@ -42,16 +42,20 @@ function getData(event) {
                 }],
             },
             options: {
+                
                 scales: {
                     x: {
-                        type: 'time',
-                        time: {
-                          unit: 'day',
-                          displayFormats: {
-                            day: 'D MMM yyyy'
-                          }
-                        }
-                      }
+                        type: 'timeseries',
+                    }                    
+                    // x: {
+                    //     type: 'time',
+                    //     time: {
+                    //       unit: 'day',
+                    //       displayFormats: {
+                    //         day: 'D MMM yyyy'
+                    //       }
+                    //     }
+                    //   }
                 }
             }
         });
