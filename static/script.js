@@ -13,39 +13,7 @@ getButton.addEventListener("click", getData);
 var timeFormat = 'moment.ISO_8601';
 var lineChart = document.getElementById('ctx').getContext('2d');
 
-var myData = [{
-    x: '2021-11-06 23:39:30',
-    y: 50}, 
-    {
-    x: '2021-11-07 01:00:28',
-    y: 60}, 
-    {
-    x: '2021-11-08 09:00:28',
-    y: 20
-}]
 
-
-new Chart('ctx', {
-    type: 'line',
-    data: {
-        datasets: [{
-            data: myData
-        }],
-    },
-    options: {
-        scales: {
-            x: {
-                type: 'time',
-                time: {
-                  unit: 'day',
-                  displayFormats: {
-                    day: 'D MMM yyyy'
-                  }
-                }
-              }
-        }
-    }
-});
 
 
 
@@ -56,16 +24,35 @@ function getData(event) {
         response = JSON.parse(xhr.responseText)
         console.log(response)
         dataList.innerHTML = ""
-        var values = [];
-        var dates = [];
+        var myData = [];
         response.forEach( (item,index) => {
-            values.push(item["value"]);
-            dates.push(item["date"]);
+            myData.push({x: item["date"], y: item["value"]})
             
             // var li = document.createElement("li")
             // li.innerHTML = JSON.stringify(item)
             // dataList.appendChild(li)
         })
+        new Chart('ctx', {
+            type: 'line',
+            data: {
+                datasets: [{
+                    data: myData
+                }],
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'time',
+                        time: {
+                          unit: 'day',
+                          displayFormats: {
+                            day: 'D MMM yyyy'
+                          }
+                        }
+                      }
+                }
+            }
+        });
         console.log(values);
         console.log(dates)
     }
