@@ -10,7 +10,7 @@ const dataList = document.querySelector("#data-list")
 sendButton.addEventListener("click", sendData);
 getButton.addEventListener("click", getData);
 
-var myChart = new Chart(ctx, {
+new Chart(ctx, {
   type: 'line',
   data: {
     labels: ["2015-03-15T13:03:00Z", "2015-03-25T13:02:00Z", "2015-04-25T14:12:00Z"],
