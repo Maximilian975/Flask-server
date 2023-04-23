@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -12,6 +13,7 @@
     <input type="text" id="type-field">
     <input type="text" id="id-field">
     <button id="get-button">Get</button>
+    <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
     <ul id="data-list"></ul>
 <script src = "{{url_for('static', filename='script.js')}}"></script>
 </body>
