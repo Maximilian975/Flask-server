@@ -10,53 +10,97 @@ const dataList = document.querySelector("#data-list")
 sendButton.addEventListener("click", sendData);
 getButton.addEventListener("click", getData);
 
-new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ["2015-03-15T13:03:00Z", "2015-03-25T13:02:00Z", "2015-04-25T14:12:00Z"],
-    datasets: [{
-      label: 'Demo',
-      data: [{
-          t: "2015-03-15T13:03:00Z",
-          y: 12
+var timeFormat = 'moment.ISO_8601';
+var lineChart = document.getElementById('ctx').getContext('2d');
+
+var config = {
+	 type: 'line',
+        data: {
+            datasets: [ 
+                {
+                    label: "US Dates",
+					backgroundColor: "#fff",
+					borderWidth: 1,
+					pointBorderWidth: 1,
+					borderColor: "#f00",
+                    data: [{
+                        x: "2010-01-01T05:06:07", y: 175
+                    }, {
+                        x: "2011-01-01T05:06:07", y: 175
+                    }, {
+                        x: "2012-01-01T05:06:07", y: 178
+                    }, {
+                        x: "2013-01-01T05:06:07", y: 200
+                    }],
+                    fill: false,
+                    borderColor: 'red'
+                },
+                {
+                    label: "UK Dates",
+					borderWidth: 1,
+					pointBorderWidth: 0,
+					backgroundColor: "#fff",
+                    data:  [{
+                        x: "2010-01-01T05:06:07", y: 160
+                    }, {
+                        x: "2011-01-01T05:06:07", y: 175
+                    }, {
+                        x: "2012-01-01T05:06:07", y: 178
+                    }, {
+                        x: "2013-01-01T05:06:07", y: 178
+                    }],
+                    fill: false,
+                    borderColor: 'blue'
+                }
+            ]
         },
-        {
-          t: "2015-03-25T13:02:00Z",
-          y: 21
-        },
-        {
-          t: "2015-04-25T14:12:00Z",
-          y: 32
+        options: {
+			  legend: {
+				display: true,
+				labels: {
+				  usePointStyle: true,
+				},
+				onClick: () => { }, // disable legend onClick functionality that filters datasets
+			  },
+            responsive: true,
+            title: {
+                display: true,
+                text:    "Chart.js Time Scale"
+            },
+			elements: {
+				point: {
+				  radius: 0,
+				  hitRadius: 5,
+				  hoverRadius: 3,
+				},
+			},
+            scales:     {
+                xAxes: [{
+                    type: "time",
+                    time: {
+                        format: timeFormat,
+                        tooltipFormat: 'll'
+                    },
+					displayFormats: {
+                        year: 'YYYY'
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Date'
+                    }
+                }],
+                yAxes: [{
+                    scaleLabel: {
+                        display:     true,
+                        labelString: 'value'
+                    }
+                }]
+            }
         }
-      ],
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)'
-      ],
-      borderColor: [
-        'rgba(255,99,132,1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)'
-      ],
-      borderWidth: 1
-    }]
-  },
-  options: {
-    scales: {
-      xAxes: [{
-        type: 'time',
-        distribution: 'linear'
-      }]
-    }
-  }
-});
+};
+
+var myLineChart = new Chart(lineChart, config);
+
 
 
 
