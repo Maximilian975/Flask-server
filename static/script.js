@@ -2,7 +2,7 @@ const sendButton = document.querySelector("#send-button");
 const dataField = document.querySelector("#data-field");
 const typeField = document.querySelector("#type-field");
 const idField = document.querySelector("#id-field");
-var ctx = document.getElementById("examChart").getContext("2d");
+var ctx = document.getElementById("ctx").getContext("2d");
 
 const getButton = document.querySelector("#get-button");
 const dataList = document.querySelector("#data-list")
