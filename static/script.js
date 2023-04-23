@@ -26,7 +26,8 @@ function getData(event) {
         dataList.innerHTML = ""
         var myData = [];
         response.forEach( (item,index) => {
-            if (item["id"] == 9){
+            console.log()
+            if (item["sensorID"] == 9){
             myData.push({x: item["date"], y: item["value"]})
             }
             // var li = document.createElement("li")
