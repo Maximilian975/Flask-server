@@ -29,7 +29,7 @@ const xyValues = [
 {x:150, y:15}
 ];
 
-new Chart("data chart", {
+new Chart("myChart", {
     type: "line",
     data: {
         datasets: [{
