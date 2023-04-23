@@ -70,7 +70,7 @@ def get_data():
             print(resultList)
             for res in resultList:
                 date = res[1].strftime('%Y-%m-%d %H:%M:%S')
-                responseList.append({"value": res[2], "date":date , "sensorType": res[3], "sensorID": res[4]})
+                responseList.append({"id": res[0], "value": res[2], "date":date , "sensorType": res[3], "sensorID": res[4]})
             print(responseList)
             return json.dumps(responseList)
     except Error as e:

@@ -26,8 +26,9 @@ function getData(event) {
         dataList.innerHTML = ""
         var myData = [];
         response.forEach( (item,index) => {
+            if (item["id"] == 9){
             myData.push({x: item["date"], y: item["value"]})
-            
+            }
             // var li = document.createElement("li")
             // li.innerHTML = JSON.stringify(item)
             // dataList.appendChild(li)
@@ -53,8 +54,6 @@ function getData(event) {
                 }
             }
         });
-        console.log(values);
-        console.log(dates)
     }
     xhr.open("GET", "/get_data");
     xhr.send();
