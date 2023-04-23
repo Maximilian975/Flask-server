@@ -13,7 +13,7 @@ getButton.addEventListener("click", getData);
 var timeFormat = 'moment.ISO_8601';
 var lineChart = document.getElementById('ctx').getContext('2d');
 
-let chart = new Chart(lineChart, {
+let chart = new Chart('ctx', {
     type: 'line',
     data: {
         datasets: [{
