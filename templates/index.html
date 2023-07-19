@@ -6,17 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <script src="https://cdnjs.com/libraries/Chart.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-adapter-moment/1.0.0/chartjs-adapter-moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-adapter-moment/1.0.0/chartjs-adapter-moment.min.js"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
 
     <title>Document</title>
 </head>
 <body>
-    <button id="send-button">Send</button>
-    <input type="text" id="data-field">
-    <input type="text" id="type-field">
-    <input type="text" id="id-field">
-    <button id="get-button">Get</button>
+    <div id="send-data-field">
+        <div id="data-input-group">
+            <div class="form__group">
+                <input type="text" class="form__input" id="data-field" placeholder="Data Value" required="" />
+                <label for="name" class="form__label">Data Value</label>
+            </div>
+            
+            <div class="form__group">
+                <input type="text" class="form__input" id="type-field" placeholder="Sensor Type" required="" />
+                <label for="name" class="form__label">Sensor Type</label>
+            </div>
+            
+            <div class="form__group">
+                <input type="text" class="form__input" id="id-field" placeholder="Sensor ID" required="" />
+                <label for="name" class="form__label">Sensor ID</label>
+            </div>
+        </div>
+        <button id="send-button" class="button-style">Send</button>
+    </div>
+    <!-- <input type="text" id="data-field"> -->
+    <!-- <input type="text" id="type-field">
+        <input type="text" id="id-field"> -->
+    <button id="get-button" class="button-style">Get</button>
     <canvas id="ctx" style="width:100%;max-width:700px"></canvas>
     <ul id="data-list"></ul>
 <script src = "{{url_for('static', filename='script.js')}}"></script>

@@ -40,11 +40,13 @@ def recv_data():
     except Error as e:
         print("Error while connecting to MySQL", e)
     finally:
-        if connection.is_connected():
-            cursor.close()
-            connection.close()
-            print("MySQL connection is closed")
-    
+        if "connection" in locals():
+            if connection.is_connected():
+                cursor.close()
+                connection.close()
+                print("MySQL connection is closed")
+        else:
+            print("Database not found")
     # assume data is json {sensorID: 2, sensorType: 3, value: 13.4}
     
 
@@ -76,10 +78,13 @@ def get_data():
     except Error as e:
         print("Error while connecting to MySQL", e)
     finally:
-        if connection.is_connected():
-            cursor.close()
-            connection.close()
-            print("MySQL connection is closed")
+        if "connection" in locals():
+            if connection.is_connected():
+                cursor.close()
+                connection.close()
+                print("MySQL connection is closed")
+        else:
+            print("Database not found")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
