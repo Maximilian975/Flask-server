@@ -82,6 +82,14 @@ function getData() {
             type: 'line',
             data: {
                 datasets: [{
+                    fill: false,
+                    borderColor: "#bae755",
+                    borderDash: [5, 5],
+                    backgroundColor: "#e755ba",
+                    pointBackgroundColor: "#55bae7",
+                    pointBorderColor: "#55bae7",
+                    pointHoverBackgroundColor: "#55bae7",
+                    pointHoverBorderColor: "#55bae7",
                     data: myData
                 }],
             },
