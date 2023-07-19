@@ -66,7 +66,7 @@ def get_data():
             cursor.execute("select database();")
             record = cursor.fetchone()
             print("You're connected to database: ", record)
-            cursor.execute("select * from data;")
+            cursor.execute("select * from data LIMIT 1000;")
             resultList = cursor.fetchall()
             responseList = []
             print(resultList)
