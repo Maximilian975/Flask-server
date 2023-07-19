@@ -30,7 +30,7 @@ function sendWaterCommand(){
 function GetCurDate(){
     var currDateObj = new Date();
     var numberOfMlSeconds = currDateObj.getTime();
-    var addMlSeconds = 48 * 60 * 60 * 1000;
+    var addMlSeconds = 24 * 60 * 60 * 1000;
     var dateObj = new Date(numberOfMlSeconds - addMlSeconds);
 
     let year = dateObj.getFullYear();
@@ -73,9 +73,9 @@ function getData() {
             if (item["sensorID"] == 2){
             myData.push({x: item["date"], y: item["value"]})
             }
-            var li = document.createElement("li")
-            li.innerHTML = JSON.stringify(item)
-            dataList.appendChild(li)
+            // var li = document.createElement("li")
+            // li.innerHTML = JSON.stringify(item)
+            // dataList.appendChild(li)
             })
             Array.from(dataList.children).reverse().forEach(element =>dataList.appendChild(element));
         new Chart('ctx', {
