@@ -82,6 +82,7 @@ function getData() {
             type: 'line',
             data: {
                 datasets: [{
+                    label: "Moisture level in garden",
                     fill: false,
                     borderColor: "#bae755",
                     borderDash: [5, 5],
