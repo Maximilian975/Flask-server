@@ -30,7 +30,7 @@ function sendWaterCommand(){
 function GetCurDate(){
     var currDateObj = new Date();
     var numberOfMlSeconds = currDateObj.getTime();
-    var addMlSeconds = 60 * 60 * 1000;
+    var addMlSeconds = 48 * 60 * 60 * 1000;
     var dateObj = new Date(numberOfMlSeconds - addMlSeconds);
 
     let year = dateObj.getFullYear();
@@ -85,7 +85,7 @@ function getData() {
                     label: "Moisture level in garden",
                     fill: false,
                     borderColor: "#f4e603",
-                    borderDash: [5, 5],
+                    // borderDash: [5, 5],
                     backgroundColor: "#DDDDDD",
                     pointBackgroundColor: "#f4e603",
                     pointBorderColor: "#f4e603",
